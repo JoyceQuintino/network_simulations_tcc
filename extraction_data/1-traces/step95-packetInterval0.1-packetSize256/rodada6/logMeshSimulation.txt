@@ -1,0 +1,30 @@
+Waf: Entering directory `/Users/carina/Documents/SIMULACOES/ns-allinone-3.29/ns-3.29/build'
+Waf: Leaving directory `/Users/carina/Documents/SIMULACOES/ns-allinone-3.29/ns-3.29/build'
+Build commands will be stored in build/compile_commands.json
+'build' finished successfully (17.442s)
+Node is at (0, 0)
+Node is at (0, 95)
+Printing mesh point device #0 diagnostics to mp-report-0.xml
+Printing mesh point device #1 diagnostics to mp-report-1.xml
+  Flow 1 (10.1.1.2 -> 10.1.1.1)
+  DeliveryRate:                 97.5952 %
+  Throughput:                  0.105521 Mbps
+  TxBytes:                     141716
+  RxBytes:                     138308
+  TxPackets:                   499
+  RxPackets:                   487
+  LostPackets:	               12
+  DelaySum:                    11.7243 s
+  DelayMean:                   0.0240745 s
+  JitterSum:                   5.0186 s
+  JitterMean:                  0.0103263 s
+  TimeFirstTxPacket:           0.105 s
+  TimeLastTxPacket:            49.905 s
+  TimeFirstRxPacket:           0.115724 s
+  TimeLastRxPacket:            49.9055 s
+  MeanTransmittedPacketSize:   284 byte
+  MeanTransmittedBitrate:      22765.6 bit/s
+  MeanHopCount:                1
+  PacketLossRatio:             0
+  MeanReceivedPacketSize:      284 byte
+  MeanReceivedBitrate:         22222.7 bit/s 

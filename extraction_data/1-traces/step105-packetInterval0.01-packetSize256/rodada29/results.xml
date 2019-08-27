@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<FlowMonitor>
+  <FlowStats>
+    <Flow flowId="1" timeFirstTxPacket="+507500000.0ns" timeFirstRxPacket="+2625710064.0ns" timeLastTxPacket="+49997500000.0ns" timeLastRxPacket="+36249445050.0ns" delaySum="+5255073206.0ns" jitterSum="+1073406042.0ns" lastDelay="+1945050.0ns" txBytes="1405800" rxBytes="1988" txPackets="4950" rxPackets="7" lostPackets="3943" timesForwarded="0">
+      <delayHistogram nBins="911" >
+        <bin index="1" start="0.001" width="0.001" count="1" />
+        <bin index="826" start="0.826" width="0.001" count="1" />
+        <bin index="846" start="0.846" width="0.001" count="1" />
+        <bin index="878" start="0.878" width="0.001" count="1" />
+        <bin index="892" start="0.892" width="0.001" count="1" />
+        <bin index="899" start="0.899" width="0.001" count="1" />
+        <bin index="910" start="0.91" width="0.001" count="1" />
+      </delayHistogram>
+      <jitterHistogram nBins="891" >
+        <bin index="11" start="0.011" width="0.001" count="1" />
+        <bin index="20" start="0.02" width="0.001" count="1" />
+        <bin index="21" start="0.021" width="0.001" count="1" />
+        <bin index="63" start="0.063" width="0.001" count="1" />
+        <bin index="66" start="0.066" width="0.001" count="1" />
+        <bin index="890" start="0.89" width="0.001" count="1" />
+      </jitterHistogram>
+      <packetSizeHistogram nBins="15" >
+        <bin index="14" start="280" width="20" count="7" />
+      </packetSizeHistogram>
+      <flowInterruptionsHistogram nBins="63" >
+        <bin index="3" start="0.75" width="0.25" count="1" />
+        <bin index="25" start="6.25" width="0.25" count="1" />
+        <bin index="42" start="10.5" width="0.25" count="1" />
+        <bin index="62" start="15.5" width="0.25" count="1" />
+      </flowInterruptionsHistogram>
+    </Flow>
+  </FlowStats>
+  <Ipv4FlowClassifier>
+    <Flow flowId="1" sourceAddress="10.1.1.2" destinationAddress="10.1.1.1" protocol="17" sourcePort="49153" destinationPort="9">
+      <Dscp value="0x0" packets="4950" />
+    </Flow>
+  </Ipv4FlowClassifier>
+  <Ipv6FlowClassifier>
+  </Ipv6FlowClassifier>
+  <FlowProbes>
+    <FlowProbe index="0">
+      <FlowStats  flowId="1" packets="7" bytes="1988" delayFromFirstProbeSum="+5255073206.0ns" >
+      </FlowStats>
+    </FlowProbe>
+    <FlowProbe index="1">
+    </FlowProbe>
+    <FlowProbe index="2">
+      <FlowStats  flowId="1" packets="4950" bytes="1405800" delayFromFirstProbeSum="+0.0ns" >
+      </FlowStats>
+    </FlowProbe>
+    <FlowProbe index="3">
+    </FlowProbe>
+  </FlowProbes>
+</FlowMonitor>

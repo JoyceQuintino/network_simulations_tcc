@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<FlowMonitor>
+  <FlowStats>
+    <Flow flowId="1" timeFirstTxPacket="+490000000.0ns" timeFirstRxPacket="+5937920050.0ns" timeLastTxPacket="+49990000000.0ns" timeLastRxPacket="+39496711350.0ns" delaySum="+1487406200.0ns" jitterSum="+1241208700.0ns" lastDelay="+6711350.0ns" txBytes="140864" rxBytes="1136" txPackets="496" rxPackets="4" lostPackets="392" timesForwarded="0">
+      <delayHistogram nBins="1248" >
+        <bin index="6" start="0.006" width="0.001" count="1" />
+        <bin index="25" start="0.025" width="0.001" count="1" />
+        <bin index="207" start="0.207" width="0.001" count="1" />
+        <bin index="1247" start="1.247" width="0.001" count="1" />
+      </delayHistogram>
+      <jitterHistogram nBins="1041" >
+        <bin index="18" start="0.018" width="0.001" count="1" />
+        <bin index="182" start="0.182" width="0.001" count="1" />
+        <bin index="1040" start="1.04" width="0.001" count="1" />
+      </jitterHistogram>
+      <packetSizeHistogram nBins="15" >
+        <bin index="14" start="280" width="20" count="4" />
+      </packetSizeHistogram>
+      <flowInterruptionsHistogram nBins="97" >
+        <bin index="37" start="9.25" width="0.25" count="1" />
+        <bin index="96" start="24" width="0.25" count="1" />
+      </flowInterruptionsHistogram>
+    </Flow>
+  </FlowStats>
+  <Ipv4FlowClassifier>
+    <Flow flowId="1" sourceAddress="10.1.1.2" destinationAddress="10.1.1.1" protocol="17" sourcePort="49153" destinationPort="9">
+      <Dscp value="0x0" packets="496" />
+    </Flow>
+  </Ipv4FlowClassifier>
+  <Ipv6FlowClassifier>
+  </Ipv6FlowClassifier>
+  <FlowProbes>
+    <FlowProbe index="0">
+      <FlowStats  flowId="1" packets="4" bytes="1136" delayFromFirstProbeSum="+1487406200.0ns" >
+      </FlowStats>
+    </FlowProbe>
+    <FlowProbe index="1">
+    </FlowProbe>
+    <FlowProbe index="2">
+      <FlowStats  flowId="1" packets="496" bytes="140864" delayFromFirstProbeSum="+0.0ns" >
+      </FlowStats>
+    </FlowProbe>
+    <FlowProbe index="3">
+    </FlowProbe>
+  </FlowProbes>
+</FlowMonitor>

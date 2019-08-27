@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<FlowMonitor>
+  <FlowStats>
+    <Flow flowId="1" timeFirstTxPacket="+35000000.0ns" timeFirstRxPacket="+45723580.0ns" timeLastTxPacket="+49935000000.0ns" timeLastRxPacket="+49935955316.0ns" delaySum="+12039917168.0ns" jitterSum="+5415870376.0ns" lastDelay="+955316.0ns" txBytes="142000" rxBytes="142000" txPackets="500" rxPackets="500" lostPackets="0" timesForwarded="0">
+      <delayHistogram nBins="823" >
+        <bin index="0" start="0" width="0.001" count="423" />
+        <bin index="1" start="0.001" width="0.001" count="46" />
+        <bin index="8" start="0.008" width="0.001" count="1" />
+        <bin index="10" start="0.01" width="0.001" count="1" />
+        <bin index="25" start="0.025" width="0.001" count="1" />
+        <bin index="26" start="0.026" width="0.001" count="1" />
+        <bin index="27" start="0.027" width="0.001" count="1" />
+        <bin index="107" start="0.107" width="0.001" count="1" />
+        <bin index="125" start="0.125" width="0.001" count="2" />
+        <bin index="126" start="0.126" width="0.001" count="1" />
+        <bin index="207" start="0.207" width="0.001" count="1" />
+        <bin index="224" start="0.224" width="0.001" count="2" />
+        <bin index="226" start="0.226" width="0.001" count="1" />
+        <bin index="324" start="0.324" width="0.001" count="2" />
+        <bin index="325" start="0.325" width="0.001" count="1" />
+        <bin index="423" start="0.423" width="0.001" count="2" />
+        <bin index="424" start="0.424" width="0.001" count="1" />
+        <bin index="522" start="0.522" width="0.001" count="2" />
+        <bin index="524" start="0.524" width="0.001" count="1" />
+        <bin index="622" start="0.622" width="0.001" count="2" />
+        <bin index="623" start="0.623" width="0.001" count="1" />
+        <bin index="721" start="0.721" width="0.001" count="2" />
+        <bin index="722" start="0.722" width="0.001" count="1" />
+        <bin index="820" start="0.82" width="0.001" count="2" />
+        <bin index="822" start="0.822" width="0.001" count="1" />
+      </delayHistogram>
+      <jitterHistogram nBins="822" >
+        <bin index="0" start="0" width="0.001" count="459" />
+        <bin index="1" start="0.001" width="0.001" count="5" />
+        <bin index="7" start="0.007" width="0.001" count="1" />
+        <bin index="10" start="0.01" width="0.001" count="1" />
+        <bin index="24" start="0.024" width="0.001" count="1" />
+        <bin index="26" start="0.026" width="0.001" count="1" />
+        <bin index="27" start="0.027" width="0.001" count="1" />
+        <bin index="98" start="0.098" width="0.001" count="3" />
+        <bin index="99" start="0.099" width="0.001" count="23" />
+        <bin index="206" start="0.206" width="0.001" count="1" />
+        <bin index="818" start="0.818" width="0.001" count="1" />
+        <bin index="819" start="0.819" width="0.001" count="1" />
+        <bin index="821" start="0.821" width="0.001" count="1" />
+      </jitterHistogram>
+      <packetSizeHistogram nBins="15" >
+        <bin index="14" start="280" width="20" count="500" />
+      </packetSizeHistogram>
+      <flowInterruptionsHistogram nBins="4" >
+        <bin index="3" start="0.75" width="0.25" count="3" />
+      </flowInterruptionsHistogram>
+    </Flow>
+  </FlowStats>
+  <Ipv4FlowClassifier>
+    <Flow flowId="1" sourceAddress="10.1.1.2" destinationAddress="10.1.1.1" protocol="17" sourcePort="49153" destinationPort="9">
+      <Dscp value="0x0" packets="500" />
+    </Flow>
+  </Ipv4FlowClassifier>
+  <Ipv6FlowClassifier>
+  </Ipv6FlowClassifier>
+  <FlowProbes>
+    <FlowProbe index="0">
+      <FlowStats  flowId="1" packets="500" bytes="142000" delayFromFirstProbeSum="+12039917168.0ns" >
+      </FlowStats>
+    </FlowProbe>
+    <FlowProbe index="1">
+    </FlowProbe>
+    <FlowProbe index="2">
+      <FlowStats  flowId="1" packets="500" bytes="142000" delayFromFirstProbeSum="+0.0ns" >
+      </FlowStats>
+    </FlowProbe>
+    <FlowProbe index="3">
+    </FlowProbe>
+  </FlowProbes>
+</FlowMonitor>
