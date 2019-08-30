@@ -28,9 +28,10 @@ a = '0.01'
 b = ['50', '60', '70', '80', '90', '95', '100']
 c = '256'
 
-data_simulations = de.data_formulation(u, flag, cam, a, b, c)
+data_simulations, icmin, icmax = de.data_formulation(u, flag, cam, a, b, c)
 
-print(data_simulations)
+print(icmin)
+print(icmax)
 
 # x representa o dataset de treino e possui 23 colunas sem o atributo alvo 
 data_x = data_simulations.iloc[:, 0:3].values
@@ -103,6 +104,9 @@ predi1 = np.array(sorted([(x1[0],y1) for x1,y1 in zip(set_test, pred1)]))
 
 vali = np.array(sorted([(x1[0],y1[0]) for x1,y1 in zip(set_test, simu1)]))
 
-#rg.create_graphic('mlp', 'Taxa de entrega', set_test, simu1, pred1, predi1, vali)
+#print('\nIntervalo de confianca') 
 
-rg.create_graphic_interval_confidence('Taxa de entrega', 'mlp', vali, predi1, pred1, set_test)
+#ml.interval_confidence(vali)
+
+rg.create_graphic_interval_confidence('Taxa de entrega', 'mlp', icmin, icmax, vali, predi1, pred1, set_test)
+#rg.teste(icmin, icmax, vali)

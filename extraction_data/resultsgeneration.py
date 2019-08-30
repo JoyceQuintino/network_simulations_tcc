@@ -14,10 +14,10 @@ def create_graphic(mod, med, set_test, simu, pred, predi, vali):
     plt.ylabel(med)
     plt.savefig('result_'+mod+'.png')
 
-def create_graphic_interval_confidence(med, name_model, vali, predi1, pred1, set_test):
+def create_graphic_interval_confidence(med, name_model, yerrormin, yerrormax, vali, predi1, pred1, set_test):
     yone100 = []
 
-    for i in range(0, 110, 5):
+    for i in range(0, 115, 5):
         yone100.append(i)
 
     x = []
@@ -28,10 +28,12 @@ def create_graphic_interval_confidence(med, name_model, vali, predi1, pred1, set
     fig1 = plt.figure(figsize=(15, 9))
     std = np.std(vali)
 
+    yerror = [yerrormin, yerrormax]
+
     line,caps,bars = plt.errorbar(
         vali[:,0],
         vali[:,1],
-        yerr= ml.interval_confidence(vali),
+        yerr= yerror,
         fmt="rs-",
         linewidth=1,
         elinewidth=0.5,
@@ -51,3 +53,8 @@ def create_graphic_interval_confidence(med, name_model, vali, predi1, pred1, set
     plt.xlabel('Principal componente')
     plt.ylabel(med)
     plt.savefig(name_model+'.png')
+
+def teste(yerrormin, yerrormax, vali):
+    yerror = [yerrormin, yerrormax]
+    plt.errorbar(vali[:,0], vali[:,1], yerr= yerror, fmt="o")
+    plt.savefig('teste.png')

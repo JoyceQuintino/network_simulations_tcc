@@ -3,6 +3,7 @@ import time
 import warnings
 warnings.filterwarnings('ignore')
 import random
+import machinelearning as ml
 import numpy as np
 from collections import OrderedDict
 
@@ -104,6 +105,30 @@ def clear_columns(dataset):
 
     return dataset
 
+def convert_columns(dataset):
+    dataset['LostPackets'] = dataset['LostPackets'].astype('int64')
+    dataset['MeanHopCount'] = dataset['MeanHopCount'].astype('int64')
+    dataset['TxBytes'] = dataset['TxBytes'].astype('int64')
+    dataset['TxPackets'] = dataset['TxPackets'].astype('int64')
+    dataset['DistanceBetweenNode'] = dataset['DistanceBetweenNode'].astype('int64')
+    dataset['packetSize'] = dataset['packetSize'].astype('int64')
+    dataset['MeanTransmittedPacketSize'] = dataset['MeanTransmittedPacketSize'].astype('int64')
+    dataset['DeliveryRate'] = dataset['DeliveryRate'].astype('float')
+    dataset['DelayMean'] = dataset['DelayMean'].astype('float')
+    dataset['DelaySum'] = dataset['DelaySum'].astype('float')
+    dataset['JitterMean'] = dataset['JitterSum'].astype('float')
+    dataset['Throughput'] = dataset['Throughput'].astype('float')
+    dataset['TimeFirstRxPacket'] = dataset['TimeFirstRxPacket'].astype('float')
+    dataset['TimeFirstTxPacket'] = dataset['TimeFirstTxPacket'].astype('float')
+    dataset['TimeLastRxPacket'] = dataset['TimeLastRxPacket'].astype('float')
+    dataset['TimeLastTxPacket'] = dataset['TimeLastTxPacket'].astype('float')
+    dataset['PacketInterval'] = dataset['PacketInterval'].astype('float')
+    dataset['MeanReceivedBitrate'] = dataset['MeanReceivedBitrate'].astype('float')
+    dataset['MeanReceivedPacketSize'] = dataset['MeanReceivedPacketSize'].astype('float')
+    dataset['MeanTransmittedBitrate'] = dataset['MeanTransmittedBitrate'].astype('float')
+
+    return dataset
+
 def selection_variables(dataset):
     data = OrderedDict(
     {
@@ -135,13 +160,21 @@ def create_dataset(u, a, b, c, flag, cam, i):
         'deliveryRate': sum(df.iloc[:,3].values)//df['deliveryRate'].count()
     })
     new_data_aux = pd.DataFrame(data, index=[i])
-    return new_data_aux
+    return new_data_aux, [df.iloc[:, 3].values]
 
 def data_formulation(u, flag, cam, a, b, c):
     i = 1
-    data_simulations = create_dataset(u, a, b, c, flag, cam, 0)
+    icmin = []
+    icmax = []
+    data_simulations, data2 = create_dataset(u, a, b, c, flag, cam, 0)
+    min, max = ml.confidence_interval(data2)
+    icmin.append(min)
+    icmax.append(max)
     while(i < len(b)):
-        dataset_aux = create_dataset(u, a, b, c, flag, cam, i)
+        dataset_aux, data2 = create_dataset(u, a, b, c, flag, cam, i)
+        min, max = ml.confidence_interval(data2)
+        icmin.append(min)
+        icmax.append(max)
         data_simulations = pd.concat([data_simulations, dataset_aux])
         i += 1
-    return data_simulations
+    return data_simulations, icmin, icmax

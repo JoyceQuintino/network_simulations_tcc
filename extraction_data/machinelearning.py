@@ -5,6 +5,7 @@ warnings.filterwarnings('ignore')
 import random
 import numpy as np
 import matplotlib.pyplot as plt
+import scipy as sc
 import seaborn as sns
 from collections import OrderedDict
 from sklearn.model_selection import GridSearchCV
@@ -100,13 +101,27 @@ def extraction_model(st, i, cam):
     model = pickle.load(open(filename, 'rb'))
     return model
 
-def interval_confidence(dataset):
+def confidence_interval(dataset):
+    n = len(dataset)
     mean = np.mean(dataset)
     std = np.std(dataset)
-    se = std/np.sqrt(len(dataset))
-    v_critico = 0.95/2
-    inter_confi = v_critico*se
-    return inter_confi
+    e = 1.96*(std/np.sqrt(len(dataset)))
+    icmin = mean - e
+    icmax = mean + e
+    icmin = round(icmin, 0)
+    icmax = round(icmax, 0)
+    return icmin, icmax 
+
+'''
+def interval_confidence(dataset):
+    n = len(dataset)
+    u = np.mean(dataset)
+    sigma = np.std(dataset)
+    se = sigma/np.sqrt(n)
+
+    interval = sc.stats.norm.interval(0.95, loc=u, scale=se)
+    print('Intervalo de confianca - ', interval[0])
+'''
 
 def salve_model(st, model, cam):
     filename = cam+'modelos/model_{}.sav'.format(st)
