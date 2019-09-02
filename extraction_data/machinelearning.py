@@ -35,7 +35,7 @@ def definitions_algorithms(name):
         return rf_parameters
     if name == 'SVR':
         svr_parameters = {'kernel':['poly', 'rbf'],
-                          'gamma':[0, 10, 100],
+                          'gamma':[1, 10, 100],
                           'C':[1.0]}
         return svr_parameters
         
