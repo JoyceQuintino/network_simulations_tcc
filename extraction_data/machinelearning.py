@@ -112,17 +112,6 @@ def confidence_interval(dataset):
     icmax = round(icmax, 0)
     return icmin, icmax 
 
-'''
-def interval_confidence(dataset):
-    n = len(dataset)
-    u = np.mean(dataset)
-    sigma = np.std(dataset)
-    se = sigma/np.sqrt(n)
-
-    interval = sc.stats.norm.interval(0.95, loc=u, scale=se)
-    print('Intervalo de confianca - ', interval[0])
-'''
-
 def salve_model(st, model, cam):
     filename = cam+'modelos/model_{}.sav'.format(st)
     pickle.dump(model, open(filename, 'wb'))
